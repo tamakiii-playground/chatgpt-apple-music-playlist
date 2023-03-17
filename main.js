@@ -16,17 +16,29 @@ async function loginToAppleMusic(username, password) {
   const page = await context.newPage();
 
   await page.goto('https://music.apple.com/us/browse');
+  await page.screenshot({ path: 'screenshot-1.png' });
   await page.getByTestId('dropdown-button').click();
+  await page.screenshot({ path: 'screenshot-2.png' });
   await page.getByTestId('list-item-0').click();
+  await page.screenshot({ path: 'screenshot-3.png' });
   await page.getByTestId('select-button').click();
+  await page.screenshot({ path: 'screenshot-4.png' });
   await page.getByRole('button', { name: 'サインイン' }).click();
+  await page.screenshot({ path: 'screenshot-5.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').locator('#modal-body div').filter({ hasText: 'Apple IDでサインインしてくださいApple TVおよびApple Musicにサインインします。Apple IDを新規作成 Apple IDまたはパスワ' }).first().click();
+  await page.screenshot({ path: 'screenshot-6.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('Apple IDを使ってサインイン').click();
+  await page.screenshot({ path: 'screenshot-7.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('Apple IDを使ってサインイン').fill(username);
+  await page.screenshot({ path: 'screenshot-8.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('Apple IDを使ってサインイン').press('Enter');
+  await page.screenshot({ path: 'screenshot-9.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('パスワード').click();
+  await page.screenshot({ path: 'screenshot-10.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('パスワード').fill(password);
+  await page.screenshot({ path: 'screenshot-11.png' });
   await page.frameLocator('[data-testid="modal-content-wrapper"] iframe').frameLocator('iframe[name="aid-auth-widget"]').getByLabel('パスワード').press('Enter');
+  await page.screenshot({ path: 'screenshot-12.png' });
 
   const verificationCode = await askForVerificationCode();
   const codeArray = verificationCode.split('');

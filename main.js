@@ -7,6 +7,7 @@ async function loginToAppleMusic(username, password) {
   const page = await context.newPage();
 
   await page.goto('https://music.apple.com/');
+	await page.waitForLoadState('networkidle');
   await page.click('button[data-testid="signInHeaderButton"]');
   await page.waitForSelector('iframe[id="aid-auth-widget-iFrame"]');
 

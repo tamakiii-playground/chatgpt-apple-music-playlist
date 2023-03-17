@@ -2,11 +2,12 @@ const { chromium } = require('playwright');
 const readline = require('readline');
 
 async function loginToAppleMusic(username, password) {
-	const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
 
   await page.goto('https://music.apple.com/');
+  await page.waitForLoadState('load');
   await page.waitForSelector('[data-testid="sign-in-button"]');
   await page.click('[data-testid="sign-in-button"]');
 

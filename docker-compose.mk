@@ -29,7 +29,8 @@ clean:
 
 .env:
 	echo 'APPLE_MUSIC_USERNAME=$(USERNAME)' > $@
-	echo 'APPLE_MUSIC_PASSWORD=$(PASSWORD)' >> $@
+	@echo 'APPLE_MUSIC_PASSWORD=$(PASSWORD)' >> $@
+	@echo "echo 'APPLE_MUSIC_PASSWORD=****************' >> $@"
 
 node_modules:
 	npm install

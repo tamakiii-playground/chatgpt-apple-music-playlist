@@ -14,7 +14,7 @@ build: Dockerfile
 	docker build -t $(IMAGE):$(TAG) .
 
 bash:
-	docker run --rm -it -v $(PWD):/work -w /work $(IMAGE):$(TAG) $@
+	docker run --rm -it -v $(PWD):/app $(IMAGE):$(TAG) $@
 
 version:
 	docker run --rm $(IMAGE):$(TAG) --version

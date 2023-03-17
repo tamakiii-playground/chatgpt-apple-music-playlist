@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    environment:
+      - APPLE_MUSIC_USERNAME=${APPLE_MUSIC_USERNAME:-}
+      - APPLE_MUSIC_PASSWORD=${APPLE_MUSIC_PASSWORD:-}

@@ -1,1 +1,1 @@
-# chatgpt-playlist-app
+# chatgpt-apple-music-playlist

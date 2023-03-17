@@ -22,3 +22,15 @@ async function loginToAppleMusic(username, password) {
   return { browser, page };
 }
 
+(async () => {
+	const username = process.env.APPLE_MUSIC_USERNAME;
+	const password = process.env.APPLE_MUSIC_PASSWORD;
+
+  try {
+    const { browser, page } = await loginToAppleMusic(username, password);
+    console.log('ログインに成功しました。');
+    await browser.close();
+  } catch (error) {
+    console.error('ログインに失敗しました。', error);
+  }
+})();
